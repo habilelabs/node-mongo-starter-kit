@@ -2,12 +2,15 @@ const {createServer} = require("http");
 const open = require("open");
 const {logger} = require("./errors");
 const {constants} = require("./config");
-const {app} = require("./app");
+const initiateRoutes = require("./modules");
+const {app, router} = require("./app");
 const {connectToMongoDb} = require("./db");
 
 const {PORT} = constants;
 
 connectToMongoDb();
+
+initiateRoutes(router);
 
 const server = createServer(app);
 

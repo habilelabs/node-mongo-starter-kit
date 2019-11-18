@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const {json, urlencoded} = require("body-parser");
+const router = express.Router();
 
 const app = express();
 app.use(urlencoded({
@@ -24,5 +25,6 @@ app.use(function (req, res, next) {
 app.use(express.static("public"));
 
 module.exports = {
-	app
+	app,
+    router
 };
