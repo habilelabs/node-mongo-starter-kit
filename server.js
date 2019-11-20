@@ -5,7 +5,7 @@ const initiateRoutes = require("./modules");
 const { app, router } = require("./app");
 const { connectToMongoDb } = require("./db");
 
-const { PORT } = constants;
+const { PORT, LOG_LEVELS } = constants;
 
 connectToMongoDb();
 
@@ -14,6 +14,7 @@ initiateRoutes(router);
 const server = createServer(app);
 
 process.on("unhandledRejection", error => {
+    logger.log(LOG_LEVELS.ERROR, error.message, { time: new Date() });
     process.exit(1);
 });
 
