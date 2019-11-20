@@ -1,10 +1,10 @@
-const {Users} = require(__basedir + "/db/models");
+const { Users } = require(__basedir + "/db/models");
 
 const getUserById = (userId, selection = {}) => Users.findOne({
 	_id: userId
 }, selection).lean();
 
-const getUsers = (condition = {}, selection = {}) => Users.find(condition, selection).lean();
+const getUser = (condition = {}, selection = {}) => Users.findOne(condition, selection).lean();
 
 const createUser = (userObj) => {
 	const user = new Users(userObj);
@@ -17,14 +17,9 @@ const updateUserById = (userId, updates) => Users.updateOne({
 	$set: updates
 });
 
-const updateUsers = (condition = {}, updates) => Users.updateMany(condition, {
-	$set: updates
-});
-
 module.exports = {
-	getUsers,
+	getUser,
 	getUserById,
 	createUser,
-	updateUsers,
 	updateUserById
 };

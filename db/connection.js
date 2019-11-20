@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {constants} = require(__basedir + "/config");
+const { constants } = require(__basedir + "/config");
 
 const {MONGO_URI} = constants;
 

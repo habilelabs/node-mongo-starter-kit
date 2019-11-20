@@ -1,4 +1,4 @@
-const {config} = require("dotenv");
+const { config } = require("dotenv");
 
 const dotEnv = config();
 

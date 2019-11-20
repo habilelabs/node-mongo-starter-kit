@@ -1,9 +1,9 @@
-const {createLogger, format, transports} = require("winston");
-const {join} = require("path");
-const {constants} = require(__basedir + "/config");
+const { createLogger, format, transports } = require("winston");
+const { join } = require("path");
+const { constants } = require(__basedir + "/config");
 
 const errorLogPath = join(__dirname, "/../logs");
-const {ENV, ENVIRONMENTS, LOG_LEVELS} = constants;
+const { ENV, ENVIRONMENTS, LOG_LEVELS } = constants;
 
 const logger = createLogger({
 	level: LOG_LEVELS.DEBUG,

@@ -1,5 +1,5 @@
-const {AppError} = require("./appError");
-const {logger} = require("./logger");
+const { AppError } = require("./appError");
+const { logger } = require("./logger");
 const {
 	throwBadRequestError,
 	throwInternalServerError,

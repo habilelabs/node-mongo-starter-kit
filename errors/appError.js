@@ -1,4 +1,4 @@
-const {logger} = require("./logger");
+const { logger } = require("./logger");
 
 function AppError(errorLevel, errorType, errorMessage, errorCode, isOperational) {
 	Error.call(this);

@@ -1,4 +1,4 @@
-const {connectToMongoDb} = require("./connection");
+const { connectToMongoDb } = require("./connection");
 
 module.exports = {
     connectToMongoDb

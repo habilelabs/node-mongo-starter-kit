@@ -1,12 +1,11 @@
-const {createServer} = require("http");
-const open = require("open");
-const {logger} = require("./errors");
-const {constants} = require("./config");
+const { createServer } = require("http");
+const { logger } = require("./errors");
+const { constants } = require("./config");
 const initiateRoutes = require("./modules");
-const {app, router} = require("./app");
-const {connectToMongoDb} = require("./db");
+const { app, router } = require("./app");
+const { connectToMongoDb } = require("./db");
 
-const {PORT} = constants;
+const { PORT } = constants;
 
 connectToMongoDb();
 
@@ -27,5 +26,4 @@ server.listen(PORT, err => {
 		return console.log(`Something went wrong: \n${err}`);
 	}
 	console.log(`Server is listening on port: ${PORT}`);
-	open(`http://localhost:${PORT}/graphql`);
 });

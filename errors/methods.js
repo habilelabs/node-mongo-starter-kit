@@ -1,6 +1,6 @@
-const {AppError} = require("./appError");
-const {constants} = require(__basedir + "/config");
-const {ERROR, LOG_LEVELS, ENTITIES} = constants;
+const { AppError } = require("./appError");
+const { constants } = require(__basedir + "/config");
+const { ERROR, LOG_LEVELS, ENTITIES } = constants;
 
 const throwUnAuthenticatedError = (message, isOperational = true) => {
 	throw new AppError(LOG_LEVELS.ERROR, ERROR.UNAUTHENTICATED.TYPE, message, ERROR.UNAUTHENTICATED.CODE, isOperational);

@@ -1,7 +1,12 @@
-const { getUser, addUser, updateUser } = require('./controller');
+const { authenticateUserWithToken } = require(__basedir + "/lib");
+const { getUser, addUser } = require('./controller');
 
 module.exports = router => {
-    router.get("/api/v1/users", getUser);
-    router.post("/api/v1/users", addUser);
-    router.put("/api/v1/users", updateUser);
+
+    router.get("/users",
+        authenticateUserWithToken,
+        getUser);
+
+    router.post("/users", addUser);
+
 };

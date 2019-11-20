@@ -1,6 +1,6 @@
 const cluster = require("cluster");
-const {cpus} = require("os");
-const {constants} = require("./config");
+const { cpus } = require("os");
+const { constants } = require("./config");
 
 global.__basedir = __dirname;
 const bootScript = "./server.js";

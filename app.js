@@ -1,9 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const {json, urlencoded} = require("body-parser");
+const { json, urlencoded } = require("body-parser");
 const router = express.Router();
 
 const app = express();
+
 app.use(urlencoded({
 	extended: true
 }));
@@ -21,6 +22,8 @@ app.use(function (req, res, next) {
 	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 	next();
 });
+
+app.use('/api/v1', router);
 
 app.use(express.static("public"));
 
