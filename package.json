@@ -1,0 +1,39 @@
+{
+  "name": "node-mongo-starter-kit",
+  "version": "1.0.0",
+  "description": "Node JS boiler plate using express JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jest.config.js --coverage",
+    "start": "node index.js",
+    "lint": "eslint -c .eslintrc config/**/*.js db/**/*.js errors/**/*.js modules/**/*.js lib/**/*.js app.js index.js server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habilelabs/node-mongo-starter-kit.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "node-starter-kit"
+  ],
+  "author": "Habilelabs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habilelabs/node-mongo-starter-kit/issues"
+  },
+  "homepage": "https://github.com/habilelabs/node-mongo-starter-kit#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.11"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "winston": "^3.2.1"
+  }
+}
