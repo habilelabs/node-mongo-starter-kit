@@ -4,7 +4,7 @@ const getUser = async (req, res) => {
     try {
         const { _id: userId } = req.user;
         const data = await getUserData(userId);
-        return res.status(200).send({data});
+        return res.status(200).send({ data });
 
     } catch (error) {
         return res.status(error.code).send({
@@ -18,7 +18,7 @@ const addUser = async (req, res) => {
 
         const userObj = req.body;
         const data = await addUserData(userObj);
-        return res.status(200).send({data});
+        return res.status(200).send({ data });
 
     } catch (error) {
         return res.status(error.code).send({

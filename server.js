@@ -23,8 +23,8 @@ process.on("exit", code => {
 });
 
 server.listen(PORT, err => {
-	if (err) {
-		return console.log(`Something went wrong: \n${err}`);
-	}
-	console.log(`Server is listening on port: ${PORT}`);
+    if (err) {
+        return console.log(`Something went wrong: \n${err}`);
+    }
+    console.log(`Server is listening on port: ${PORT}`);
 });
