@@ -1,6 +1,7 @@
 const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const { constants } = require(__basedir + "/config");
-const { ENV, PORT } = constants;
+const { ENV, PORT, ENVIRONMENTS } = constants;
 
 const environments = {
     DEVELOPMENT: {
@@ -37,6 +38,20 @@ const options = {
     swaggerDefinition: swaggerDefinition,
     apis: [ './modules/**/*.js' ],
 };
+
 const swaggerSpec = swaggerJSDoc(options);
 
-module.exports = swaggerSpec;
+const initiateSwagger = router => {
+    // Serve swagger docs only for non-production environments
+    if (ENV !== ENVIRONMENTS.PRODUCTION) {
+        router.get('/api-docs.json', function (req, res) {
+            res.send(swaggerSpec);
+        });
+        router.use('/api-docs', swaggerUi.serveFiles(swaggerSpec));
+        router.get('/api-docs', (req, res) => {
+            res.send(swaggerUi.generateHTML(swaggerSpec));
+        });
+    }
+};
+
+module.exports = initiateSwagger;
