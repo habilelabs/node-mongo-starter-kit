@@ -1,3 +1,10 @@
+/**
+ * @file app.js
+ * @summary Create and expose express app instance
+ * @description This file is responsible for creating instance of express and initializing swagger. All application specific
+ * middleware will be used here.
+ * The app instance along with the express router are exposed to be used by HTTP server.
+ * */
 const express = require("express");
 const cors = require("cors");
 const { json, urlencoded } = require("body-parser");
@@ -28,6 +35,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+// For serving files statically from "public" directory
 app.use(express.static("public"));
 
 module.exports = {

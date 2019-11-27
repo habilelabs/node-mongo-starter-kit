@@ -1,3 +1,10 @@
+/**
+ * @file constants.js
+ * @summary Contains constants for app
+ * @description This file defines constant variables used by app. It also reads .env file and merges it with
+ * our defined constants
+ * */
+
 const { config } = require("dotenv");
 
 const dotEnv = config();

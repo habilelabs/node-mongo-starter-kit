@@ -1,9 +1,21 @@
+/**
+ * @file auth.js
+ * @summary User authentication and verification middleware
+ * @description This file contains utility methods for authentication and verification of user.
+ * */
+
 const { sign, verify } = require("jsonwebtoken");
 const { constants } = require(__basedir + "/config");
 const { throwUnAuthenticatedError } = require(__basedir + "/errors");
 
 const { SECRET } = constants;
 
+/**
+ * Method to extract and verify JWT token from HTTP headers
+ * @param {object} req HTTP request object
+ * @param {object} res HTTP response object
+ * @param {function} next HTTP next callback method
+ * */
 const authenticateUserWithToken = async (req, res, next) => {
     try {
         const auth = req.headers.authorization;
@@ -32,6 +44,10 @@ const authenticateUserWithToken = async (req, res, next) => {
     }
 };
 
+/**
+ * Method to generate token from a given payload
+ * @param {object} payload Payload to be injected in token
+ * */
 const createToken = payload => {
     const tokenPayload = Object.assign({ time: new Date().getTime() }, payload);
     return sign(tokenPayload, SECRET, { expiresIn: "7 days" });

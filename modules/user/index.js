@@ -1,4 +1,9 @@
-const { authenticateUserWithToken } = require(__basedir + "/lib");
+/**
+ * @file index.js
+ * @summary User routes
+ * @description This file contains routes for user entity
+ * */
+const { authenticateUserWithToken } = require(__basedir + "/middlewares");
 const { getUser, addUser } = require('./controller');
 
 module.exports = router => {

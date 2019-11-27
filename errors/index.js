@@ -1,5 +1,5 @@
 const { AppError } = require("./appError");
-const { logger } = require("./logger");
+const { log } = require("./logger");
 const {
     throwBadRequestError,
     throwInternalServerError,
@@ -10,7 +10,7 @@ const {
 
 module.exports = {
     AppError,
-    logger,
+    log,
     throwBadRequestError,
     throwInternalServerError,
     throwUnAuthenticatedError,

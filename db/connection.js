@@ -1,8 +1,15 @@
+/**
+ * @file connection.js
+ * @summary Exposes method for connecting to mongoDB
+ * */
 const mongoose = require("mongoose");
 const { constants } = require(__basedir + "/config");
 
 const { MONGO_URI } = constants;
 
+/**
+ * Method for connecting to mongoDB
+ * */
 const connectToMongoDb = () => {
     mongoose.connect(MONGO_URI, {
         useNewUrlParser: true,

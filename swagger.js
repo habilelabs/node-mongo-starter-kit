@@ -1,3 +1,9 @@
+/**
+ * @file swagger.js
+ * @summary Configure and initialize swagger
+ * @description This file contains swagger configuration and initiates swagger and
+ * exposes swagger routes to be used by express app.
+ * */
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const { constants } = require(__basedir + "/config");
