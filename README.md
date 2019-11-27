@@ -22,3 +22,11 @@ MONGO_URI=<Mongo DB uri>
 This app uses `jest` for unit testing.
 
 To run test-cases, run `npm test`.
+
+## Built With
+
+The app is built using the following components.
+
+*  [MongoDB](https://www.mongodb.com/)
+*  [Express](https://expressjs.com/)
+*  [Node.js](https://nodejs.org/)
