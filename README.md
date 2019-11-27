@@ -23,6 +23,11 @@ This app uses `jest` for unit testing.
 
 To run test-cases, run `npm test`.
 
+### API Documentations
+This app uses `swagger` for API docs.
+
+Documentation can be found at `/api/v1/api-docs`
+
 ## Built With
 
 The app is built using the following components.
