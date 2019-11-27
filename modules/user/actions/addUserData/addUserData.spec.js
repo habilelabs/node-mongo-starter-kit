@@ -10,12 +10,12 @@ jest.mock(__basedir + '/db/controllers/users', () => ({
     getUser: jest.fn(),
 }));
 
-jest.mock(__basedir + '/lib/auth', () => ({
+jest.mock(__basedir + '/middlewares/auth', () => ({
     createToken: jest.fn(),
 }));
 
 const { createUser, getUser } = require(__basedir + '/db/controllers/users');
-const { createToken } = require(__basedir + '/lib/auth');
+const { createToken } = require(__basedir + '/middlewares/auth');
 
 beforeEach(() => {
     // Clear all mocks

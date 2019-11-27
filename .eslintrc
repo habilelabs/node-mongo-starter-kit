@@ -1,0 +1,83 @@
+{
+    "env": {
+        "commonjs": true,
+        "node": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "plugins": [],
+    "rules": {
+        "brace-style": [
+            2,
+            "1tbs"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "array-bracket-spacing": [
+            "error",
+            "always",
+            {
+                "objectsInArrays": false
+            }
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "curly": "error",
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1
+            }
+        ],
+        "space-before-blocks": [
+            "error"
+        ],
+        "no-multi-spaces": [
+            "error"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-undef": [
+            "off"
+        ],
+        "no-unused-vars": [
+            "off"
+        ],
+        "no-console": [
+            "off"
+        ],
+        "no-useless-escape": [
+            "off"
+        ],
+        "keyword-spacing": [
+            "error"
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "afterColon": true
+            }
+        ],
+        "space-infix-ops": "error",
+        "eqeqeq": "error",
+        "no-eq-null": "error"
+    },
+    "globals": {
+        "moment": true,
+        "zE": true,
+        "_": true
+    }
+}
