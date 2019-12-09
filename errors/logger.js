@@ -4,18 +4,34 @@
  * @description This file defines and exposes a log method to log errors to file and console
  * */
 const { createLogger, format, transports } = require("winston");
+require('winston-daily-rotate-file');
 const { join } = require("path");
 const { constants } = require(__basedir + "/config");
 
 const errorLogPath = join(__basedir, "/logs");
 const { ENV, ENVIRONMENTS, LOG_LEVELS } = constants;
 
+const rotateLogErrorTransport = new transports.DailyRotateFile({
+    filename: 'error-%DATE%.log',
+    datePattern: 'YYYY-MM-DD-HH',
+    zippedArchive: true,
+    dirname: errorLogPath,
+    level: LOG_LEVELS.ERROR
+});
+
+const rotateLogCombinedTransport = new transports.DailyRotateFile({
+    filename: 'combined-%DATE%.log',
+    datePattern: 'YYYY-MM-DD-HH',
+    zippedArchive: true,
+    dirname: errorLogPath
+});
+
 const logger = createLogger({
     level: LOG_LEVELS.DEBUG,
     format: format.json(),
     transports: [
-        new transports.File({ filename: join(errorLogPath, "error.log"), level: LOG_LEVELS.ERROR }),
-        new transports.File({ filename: join(errorLogPath, "combined.log") })
+        rotateLogErrorTransport,
+        rotateLogCombinedTransport
     ]
 });
 
