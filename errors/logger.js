@@ -8,10 +8,11 @@ require('winston-daily-rotate-file');
 const { join } = require("path");
 const { constants } = require(__basedir + "/config");
 
-const errorLogPath = join(__basedir, "/logs");
+const errorLogPath = join(__basedir, "/logs/errors");
+const combinedLogPath = join(__basedir, "/logs/combined");
 const { ENV, ENVIRONMENTS, LOG_LEVELS } = constants;
 
-const rotateLogErrorTransport = new transports.DailyRotateFile({
+const errorLogRotateTransport = new transports.DailyRotateFile({
     filename: 'error-%DATE%.log',
     datePattern: 'YYYY-MM-DD-HH',
     zippedArchive: true,
@@ -19,19 +20,19 @@ const rotateLogErrorTransport = new transports.DailyRotateFile({
     level: LOG_LEVELS.ERROR
 });
 
-const rotateLogCombinedTransport = new transports.DailyRotateFile({
+const combinedLogRotateTransport = new transports.DailyRotateFile({
     filename: 'combined-%DATE%.log',
     datePattern: 'YYYY-MM-DD-HH',
     zippedArchive: true,
-    dirname: errorLogPath
+    dirname: combinedLogPath
 });
 
 const logger = createLogger({
     level: LOG_LEVELS.DEBUG,
     format: format.json(),
     transports: [
-        rotateLogErrorTransport,
-        rotateLogCombinedTransport
+        errorLogRotateTransport,
+        combinedLogRotateTransport
     ]
 });
 
