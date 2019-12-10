@@ -5,7 +5,7 @@
  * */
 
 const { sign, verify } = require("jsonwebtoken");
-const { constants } = require(__basedir + "/config");
+const { constants, messages } = require(__basedir + "/config");
 const { throwUnAuthenticatedError } = require(__basedir + "/errors");
 
 const { SECRET } = constants;
@@ -20,7 +20,7 @@ const authenticateUserWithToken = async (req, res, next) => {
     try {
         const auth = req.headers.authorization;
         if (!auth) {
-            throwUnAuthenticatedError("Access denied.");
+            throwUnAuthenticatedError(messages.ACCESS_DENIED);
         }
         const authParts = auth.split(" ");
         if (authParts.length !== 2) {
