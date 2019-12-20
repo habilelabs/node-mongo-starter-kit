@@ -14,10 +14,10 @@ global.__basedir = __dirname;
 
 const bootScript = "./server.js";
 
-const { ENV, ENVIRONMENTS } = constants;
+const { IS_CLUSTERING_ENABLED } = constants;
 
-if (cluster.isMaster) {
-    const cpuCount = ENV === ENVIRONMENTS.DEVELOPMENT ? 1 : cpus().length;
+if (IS_CLUSTERING_ENABLED && cluster.isMaster) {
+    const cpuCount = cpus().length;
     // fork node processes
     for (let i = 0; i < cpuCount; i++) {
         cluster.fork();
@@ -48,6 +48,6 @@ if (cluster.isMaster) {
         });
     });
 } else {
-    // process is worker, require server file to create server
+    // clustering is not enabled OR process is worker, require server file to create server
     require(bootScript);
 }

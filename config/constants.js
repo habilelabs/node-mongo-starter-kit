@@ -17,7 +17,8 @@ const {
     PORT,
     ENV,
     SECRET,
-    MONGO_URI
+    MONGO_URI,
+    IS_CLUSTERING_ENABLED
 } = process.env;
 
 const constants = {
@@ -25,6 +26,7 @@ const constants = {
     ENV,
     SECRET,
     MONGO_URI,
+    IS_CLUSTERING_ENABLED: IS_CLUSTERING_ENABLED === "true",
     ENVIRONMENTS: {
         DEVELOPMENT: "development",
         PRODUCTION: "production"

@@ -14,6 +14,7 @@ Node JS boiler plate using express JS.
 PORT=<Port of your choice>
 ENV=<Environment development/production>
 SECRET=<Some strong secret>
+IS_CLUSTERING_ENABLED=<Boolean true/false>
 MONGO_URI=<Mongo DB uri>
 ```
 * Run `npm start` to run the server.
