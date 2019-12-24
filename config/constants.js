@@ -29,6 +29,10 @@ const constants = {
         DEVELOPMENT: "development",
         PRODUCTION: "production"
     },
+    LOG_CONFIG: {
+        DATE_PATTERN: "YYYY-MM-DD",
+        MAX_FILE: "30d"
+    },
     LOG_LEVELS: {
         INFO: "info",
         ERROR: "error",
