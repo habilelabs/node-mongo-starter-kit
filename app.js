@@ -10,6 +10,8 @@ const cors = require("cors");
 const { json, urlencoded } = require("body-parser");
 const router = express.Router();
 const initiateSwagger = require("./swagger");
+const initiateRoutes = require("./modules");
+const { accessLogger } = require("./middlewares");
 
 const app = express();
 
@@ -23,9 +25,11 @@ app.use(json({
 
 app.use(cors());
 
-app.use('/api/v1', router);
-
 initiateSwagger(router);
+initiateRoutes(router);
+router.use(accessLogger);
+
+app.use('/api/v1', router);
 
 app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");

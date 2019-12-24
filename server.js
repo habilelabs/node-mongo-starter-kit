@@ -7,15 +7,12 @@
 const { createServer } = require("http");
 const { log } = require("./errors");
 const { constants } = require("./config");
-const initiateRoutes = require("./modules");
-const { app, router } = require("./app");
+const { app } = require("./app");
 const { connectToMongoDb } = require("./db");
 
 const { PORT, LOG_LEVELS } = constants;
 
 connectToMongoDb();
-
-initiateRoutes(router);
 
 const server = createServer(app);
 

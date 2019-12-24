@@ -30,7 +30,7 @@ const authenticateUserWithToken = async (req, res, next) => {
         if (new RegExp("^Bearer$").test(scheme)) {
             try {
                 const user = await verify(token, SECRET);
-                // eslint-disable-line require-atomic-updates
+                // eslint-disable-next-line
                 req.user = user._doc;
                 next();
             } catch (e) {
