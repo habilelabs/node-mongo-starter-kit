@@ -7,6 +7,8 @@
  * */
 
 const { getUserData, addUserData } = require("./actions");
+const { constants } = require(__basedir + "/config");
+const { SUCCESS } = constants;
 
 /**
  * Controller to get user data by id
@@ -18,7 +20,7 @@ const getUser = async (req, res, next) => {
     try {
         const { _id: userId } = req.user;
         const data = await getUserData(userId);
-        res.status(200).send({ data });
+        res.status(SUCCESS.CODE).send({ data });
         next();
     } catch (error) {
         res.status(error.code).send({
@@ -38,7 +40,7 @@ const addUser = async (req, res, next) => {
     try {
         const userObj = req.body;
         const data = await addUserData(userObj);
-        res.status(200).send({ data });
+        res.status(SUCCESS.CODE).send({ data });
         next();
     } catch (error) {
         res.status(error.code).send({

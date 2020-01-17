@@ -44,6 +44,9 @@ const constants = {
         ERROR: "error",
         DEBUG: "debug",
     },
+    SUCCESS: {
+        CODE: 200
+    },
     ERROR: {
         BAD_REQUEST: {
             TYPE: "BAD_REQUEST",
