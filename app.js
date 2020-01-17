@@ -12,6 +12,9 @@ const router = express.Router();
 const initiateSwagger = require("./swagger");
 const initiateRoutes = require("./modules");
 const { accessLogger } = require("./middlewares");
+const { constants } = require("./config");
+
+const { ENABLE_ACCESS_LOGS } = constants;
 
 const app = express();
 
@@ -27,7 +30,10 @@ app.use(cors());
 
 initiateSwagger(router);
 initiateRoutes(router);
-router.use(accessLogger);
+
+if (ENABLE_ACCESS_LOGS) {
+    router.use(accessLogger);
+}
 
 app.use('/api/v1', router);
 
