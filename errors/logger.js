@@ -10,7 +10,7 @@ const { constants } = require(__basedir + "/config");
 const errorLogPath = join(__basedir, "/logs/errors");
 const combinedLogPath = join(__basedir, "/logs/combined");
 
-const { ENV, ENVIRONMENTS, LOG_LEVELS, LOG_CONFIG } = constants;
+const { ENV, ENVIRONMENTS, LOG_LEVELS, LOG_CONFIG, ENABLE_DEBUG_LOGS } = constants;
 
 const loggerConfig = {
     datePattern: LOG_CONFIG.DATE_PATTERN,
@@ -30,7 +30,7 @@ const combinedLogRotateTransport = new transports.DailyRotateFile(Object.assign(
 }, loggerConfig));
 
 const logger = createLogger({
-    level: LOG_LEVELS.DEBUG,
+    level: ENABLE_DEBUG_LOGS ? LOG_LEVELS.DEBUG : LOG_LEVELS.INFO,
     format: format.json(),
     transports: [
         errorLogRotateTransport,
@@ -41,7 +41,7 @@ const logger = createLogger({
 if (ENV === ENVIRONMENTS.DEVELOPMENT) {
     logger.add(new transports.Console({
         format: format.simple(),
-        level: LOG_LEVELS.INFO
+        level: ENABLE_DEBUG_LOGS ? LOG_LEVELS.DEBUG : LOG_LEVELS.INFO
     }));
 }
 

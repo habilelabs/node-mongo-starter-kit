@@ -18,6 +18,8 @@ const {
     ENV,
     SECRET,
     MONGO_URI,
+    ENABLE_ACCESS_LOGS,
+    ENABLE_DEBUG_LOGS,
     IS_CLUSTERING_ENABLED
 } = process.env;
 
@@ -27,6 +29,8 @@ const constants = {
     SECRET,
     MONGO_URI,
     IS_CLUSTERING_ENABLED: IS_CLUSTERING_ENABLED === "true",
+    ENABLE_ACCESS_LOGS: ENABLE_ACCESS_LOGS === "true",
+    ENABLE_DEBUG_LOGS: ENABLE_DEBUG_LOGS === "true",
     ENVIRONMENTS: {
         DEVELOPMENT: "development",
         PRODUCTION: "production"

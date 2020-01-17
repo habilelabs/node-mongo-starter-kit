@@ -1,5 +1,5 @@
 # Node-mongo-starter-kit
-Node JS boiler plate using express JS.
+Node JS boiler plate using express JS and mongoDB created with best practices for Nodejs.
 
 ### Prerequisites
 ```
@@ -13,8 +13,10 @@ Node JS boiler plate using express JS.
 ```
 PORT=<Port of your choice>
 ENV=<Environment development/production>
-SECRET=<Some strong secret>
+SECRET=<Some strong secret, a string>
 IS_CLUSTERING_ENABLED=<Boolean true/false>
+ENABLE_ACCESS_LOGS=<Boolean true/false>
+ENABLE_DEBUG_LOGS=<Boolean true/false>
 MONGO_URI=<Mongo DB uri>
 ```
 * Run `npm start` to run the server.
